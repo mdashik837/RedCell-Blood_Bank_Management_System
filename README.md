@@ -1,10 +1,10 @@
-# 🩸 RedCell - Blood Bank Management System
+# RedCell - Blood Bank Management System
 
 RedCell is a desktop-based Blood Bank Management System developed in Java using Object-Oriented Programming principles, JavaFX for the GUI, and SQLite for persistent data storage. It connects donors, hospitals, and administrators to improve the efficiency, safety, and speed of blood inventory management.
 
 ---
 
-## 📌 Features
+## Features
 
 - **Role-based Login System** (Admin, Donor, Hospital)
 - **Donor Management** – Registration, donation logging, eligibility check
@@ -16,7 +16,7 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 🏗️ Technologies Used
+## Technologies Used
 
 | Component | Technology |
 |----------|------------|
@@ -29,7 +29,7 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 🧱 Project Modules
+## Project Modules
 
 - **Authentication & Role Management**
 - **Blood Inventory Management**
@@ -39,7 +39,7 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 📂 How to Run the Project
+## How to Run the Project
 
 1. Clone this repository.
 2. Open the project in IntelliJ IDEA or VS Code.
@@ -49,7 +49,7 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 📄 UML & Documentation
+## UML & Documentation
 
 - Class Diagram
 - Use Case Diagram
@@ -60,7 +60,7 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 🎯 Contributors (Group 07 – DIU)
+## Contributors (Group 07)
 
 - **Shafayat Yeamin Jian** – Role Management & Authentication
 - **Md. Asikujjaman** – Inventory Control & Request Fulfillment
@@ -70,12 +70,12 @@ RedCell is a desktop-based Blood Bank Management System developed in Java using 
 
 ---
 
-## 📽️ Demo
+## Demo
 
 > On progress.
 
 ---
 
-## 🔖 License
+## License
 
 This project is for educational purposes only.
