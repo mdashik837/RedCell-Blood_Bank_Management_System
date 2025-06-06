@@ -1,81 +1,84 @@
-# RedCell - Blood Bank Management System
+# RedCell Blood Bank Management System
 
-RedCell is a desktop-based Blood Bank Management System developed in Java using Object-Oriented Programming principles, JavaFX for the GUI, and SQLite for persistent data storage. It connects donors, hospitals, and administrators to improve the efficiency, safety, and speed of blood inventory management.
-
----
+A JavaFX-based blood bank management system that provides an intuitive interface for blood donation and request management.
 
 ## Features
 
-- **Role-based Login System** (Admin, Donor, Hospital)
-- **Donor Management** – Registration, donation logging, eligibility check
-- **Blood Inventory Tracking** – Real-time monitoring and updates
-- **Request Handling** – Hospitals request blood; system fulfills based on availability
-- **User-Friendly GUI** – Built using JavaFX
-- **Data Persistence** – Local storage using SQLite
-- **OOP Design** – Encapsulation, Inheritance, Polymorphism
+- User Authentication (Login/Register)
+- Blood Request Management
+- Request Tracking
+- Blood Availability Dashboard
+- Quick Statistics
+- News Updates
 
----
+## Prerequisites
 
-## Technologies Used
+- Java 21 or higher
+- Maven
+- JavaFX SDK
 
-| Component | Technology |
-|----------|------------|
-| Programming Language | Java |
-| GUI Framework | JavaFX |
-| Database | SQLite |
-| Version Control | Git & GitHub |
-| UML Design | Lucidchart |
-| IDE | VS Code / IntelliJ IDEA |
+## Installation
 
----
+1. Clone the repository
+```bash
+git clone [your-repository-url]
+```
 
-## Project Modules
+2. Navigate to the project directory
+```bash
+cd RedCell
+```
 
-- **Authentication & Role Management**
-- **Blood Inventory Management**
-- **Request Fulfillment**
-- **JavaFX GUI**
-- **SQLite Database Integration**
+3. Build the project using Maven
+```bash
+mvn clean install
+```
 
----
+## Running the Application
 
-## How to Run the Project
+### Using run.bat (Windows)
+Simply double-click the `run.bat` file or run it from the command line:
+```bash
+run.bat
+```
 
-1. Clone this repository.
-2. Open the project in IntelliJ IDEA or VS Code.
-3. Ensure Java SDK 17+ and JavaFX are installed.
-4. Run the main application file: `Main.java`.
-5. SQLite DB file (`redcell.db`) will be created automatically or load the default version provided.
+### Using Maven
+```bash
+mvn javafx:run
+```
 
----
+## Project Structure
 
-## UML & Documentation
+```
+RedCell/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── redcell/
+│       │           ├── controllers/
+│       │           └── models/
+│       └── resources/
+│           ├── views/
+│           ├── styles/
+│           └── img/
+└── pom.xml
+```
 
-- Class Diagram
-- Use Case Diagram
-- Sequence Diagrams
-- Data Dictionary
-- User Manual (PDF)
-- Project Report
+## Contributing
 
----
-
-## Contributors (Group 07)
-
-- **Shafayat Yeamin Jian** – Role Management & Authentication
-- **Md. Asikujjaman** – Inventory Control & Request Fulfillment
-- **Saber Mahmud Sarker** – JavaFX GUI Design
-- **Emdad Hossen Bhuyan** – Database Management
-- **Md. Rafiul Karim** – UML & Documentation
-
----
-
-## Demo
-
-> On progress.
-
----
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is for educational purposes only.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- JavaFX Community
+- Maven
+- All contributors who helped with the project 

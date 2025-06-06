@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.redcell.TrackRequestController"
+      styleClass="form-container"
+      alignment="CENTER">
+    
+    <Text styleClass="form-title" text="Track Request"/>
+    
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="requestId" promptText="Request ID" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="trackButton" text="Track" styleClass="button"/>
+    </HBox>
+    
+    <VBox fx:id="requestDetails" styleClass="request-details" visible="false">
+        <Text styleClass="detail-label" text="Status:"/>
+        <Text fx:id="status" styleClass="detail-value"/>
+        
+        <Text styleClass="detail-label" text="Blood Type:"/>
+        <Text fx:id="bloodType" styleClass="detail-value"/>
+        
+        <Text styleClass="detail-label" text="Units:"/>
+        <Text fx:id="units" styleClass="detail-value"/>
+        
+        <Text styleClass="detail-label" text="Hospital:"/>
+        <Text fx:id="hospital" styleClass="detail-value"/>
+        
+        <Text styleClass="detail-label" text="Required Date:"/>
+        <Text fx:id="requiredDate" styleClass="detail-value"/>
+    </VBox>
+    
+    <Text fx:id="errorMessage" styleClass="error-message"/>
+</VBox> 

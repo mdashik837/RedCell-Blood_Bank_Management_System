@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.redcell.LoginController"
+      styleClass="form-container"
+      alignment="CENTER">
+    
+    <Text styleClass="form-title" text="Login"/>
+    
+    <TextField fx:id="username" promptText="Username"/>
+    <PasswordField fx:id="password" promptText="Password"/>
+    
+    <Button fx:id="loginButton" text="Login" styleClass="button"/>
+    
+    <Text fx:id="errorMessage" styleClass="error-message"/>
+</VBox> 

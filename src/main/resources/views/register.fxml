@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.redcell.RegisterController"
+      styleClass="form-container"
+      alignment="CENTER">
+    
+    <Text styleClass="form-title" text="Register"/>
+    
+    <TextField fx:id="fullName" promptText="Full Name"/>
+    <TextField fx:id="username" promptText="Username"/>
+    <PasswordField fx:id="password" promptText="Password"/>
+    <PasswordField fx:id="confirmPassword" promptText="Confirm Password"/>
+    <TextField fx:id="email" promptText="Email"/>
+    <TextField fx:id="phone" promptText="Phone Number"/>
+    
+    <Button fx:id="registerButton" text="Register" styleClass="button"/>
+    
+    <Text fx:id="errorMessage" styleClass="error-message"/>
+</VBox> 
