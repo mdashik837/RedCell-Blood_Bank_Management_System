@@ -4,10 +4,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
 
 <ScrollPane fitToWidth="true" styleClass="main-scroll-pane" xmlns="http://javafx.com/javafx/21.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redcell.HomeController">
     <VBox spacing="20" styleClass="home-container">
@@ -26,43 +28,43 @@
                 <!-- Blood Types Flow -->
                 <HBox spacing="8" alignment="CENTER" HBox.hgrow="NEVER">
                     <!-- A Types -->
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,available">
                         <Text styleClass="blood-type" text="A+" />
-                        <Text styleClass="blood-status available" text="Available" />
+                        <Text styleClass="blood-status" text="Available" />
                     </VBox>
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,low">
                         <Text styleClass="blood-type" text="A-" />
-                        <Text styleClass="blood-status low" text="Low" />
+                        <Text styleClass="blood-status" text="Low" />
                     </VBox>
                     
                     <!-- B Types -->
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,available">
                         <Text styleClass="blood-type" text="B+" />
-                        <Text styleClass="blood-status available" text="Available" />
+                        <Text styleClass="blood-status" text="Available" />
                     </VBox>
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,critical">
                         <Text styleClass="blood-type" text="B-" />
-                        <Text styleClass="blood-status critical" text="Critical" />
+                        <Text styleClass="blood-status" text="Critical" />
                     </VBox>
                     
                     <!-- O Types -->
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,available">
                         <Text styleClass="blood-type" text="O+" />
-                        <Text styleClass="blood-status available" text="Available" />
+                        <Text styleClass="blood-status" text="Available" />
                     </VBox>
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,low">
                         <Text styleClass="blood-type" text="O-" />
-                        <Text styleClass="blood-status low" text="Low" />
+                        <Text styleClass="blood-status" text="Low" />
                     </VBox>
                     
                     <!-- AB Types -->
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,available">
                         <Text styleClass="blood-type" text="AB+" />
-                        <Text styleClass="blood-status available" text="Available" />
+                        <Text styleClass="blood-status" text="Available" />
                     </VBox>
-                    <VBox alignment="CENTER" styleClass="blood-type-tile">
+                    <VBox alignment="CENTER" styleClass="blood-type-tile,low">
                         <Text styleClass="blood-type" text="AB-" />
-                        <Text styleClass="blood-status low" text="Low" />
+                        <Text styleClass="blood-status" text="Low" />
                     </VBox>
                 </HBox>
                 
@@ -100,6 +102,32 @@
             </HBox>
         </VBox>
 
+        <!-- Recent Requests Section -->
+        <VBox styleClass="section-container">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15" />
+            </padding>
+            <Text styleClass="section-header" text="Recent Blood Requests" />
+            <TableView fx:id="recentRequestsTable" VBox.vgrow="ALWAYS" styleClass="recent-requests-table">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+
+        <!-- Available Donors Section -->
+        <VBox styleClass="section-container">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15" />
+            </padding>
+            <Text styleClass="section-header" text="Available Donors" />
+            <HBox spacing="20" styleClass="donors-container">
+                <GridPane fx:id="donorsGrid" hgap="20" vgap="20">
+                    <!-- Donor cards will be added dynamically -->
+                </GridPane>
+            </HBox>
+        </VBox>
+
         <!-- News Section -->
         <VBox styleClass="section-container">
             <padding>
@@ -121,3 +149,4 @@
         </VBox>
     </VBox>
 </ScrollPane>
+ 
