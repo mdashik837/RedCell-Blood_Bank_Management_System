@@ -100,14 +100,17 @@ public class TrackRequestController {
                     trackButton.setDisable(false);
                     
                     // TODO: Replace with actual API call
+                    // TODO: Replace with actual API call that returns a Request object
                     if (id.equals("REQ001")) {
                         showError("");
+                        // Create a dummy Request object for now
+                        Request dummyRequest = new Request("REQ001", "A+", 2, "City Hospital", "Downtown", "Processing", "2024-03-20");
                         displayRequestDetails(
-                            "Processing",
-                            "A+",
-                            "2",
-                            "City Hospital",
-                            "2024-03-20"
+                            dummyRequest.getStatus(),
+                            dummyRequest.getBloodType(),
+                            String.valueOf(dummyRequest.getUnits()),
+                            dummyRequest.getDate(),
+                            dummyRequest
                         );
                     } else {
                         showError("Request not found: " + id);
@@ -125,12 +128,11 @@ public class TrackRequestController {
     }
     
     private void displayRequestDetails(String statusText, String bloodTypeText,
-                                     String unitsText, String hospitalText,
-                                     String dateText) {
+                                     String unitsText, String dateText, Request request) {
         status.setText(statusText);
         bloodType.setText(bloodTypeText);
         units.setText(unitsText);
-        hospital.setText(hospitalText);
+        hospital.setText(request.getHospital()); // Get hospital name from Facility object in Request
         requiredDate.setText(dateText);
         requestDetails.setVisible(true);
 

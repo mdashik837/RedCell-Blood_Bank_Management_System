@@ -48,11 +48,14 @@ public class RegisterController {
         }
 
         try {
-            // TODO: Implement actual registration logic
-            showErrorMessage("Registration successful!");
-            
+            // Sample successful registration logic
+            System.out.println("Sample Registration Successful for: " + username.getText());
+            showErrorMessage("Registration successful! (Sample)");
+            // You could add code here to clear fields or navigate to another page
+            // For now, we just show a success message.
+
         } catch (Exception e) {
-            showErrorMessage("Error during registration");
+            showErrorMessage("Error during registration: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -99,6 +99,12 @@
                         <Text styleClass="stat-label" text="Lives Saved" />
                     </VBox>
                 </VBox>
+                <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS">
+                    <VBox alignment="CENTER">
+                        <Text fx:id="activeDonors" styleClass="stat-value" />
+                        <Text styleClass="stat-label" text="Active Donors" />
+                    </VBox>
+                </VBox>
             </HBox>
         </VBox>
 

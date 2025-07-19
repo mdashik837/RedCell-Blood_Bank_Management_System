@@ -28,7 +28,7 @@
     </ComboBox>
     
     <TextField fx:id="units" promptText="Number of Units"/>
-    <TextField fx:id="hospital" promptText="Hospital Name"/>
+    <TextField fx:id="facilityName" promptText="Facility Name"/>
     <TextArea fx:id="reason" promptText="Reason for Request" prefRowCount="3"/>
     <DatePicker fx:id="requiredDate" promptText="Required Date"/>
     

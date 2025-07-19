@@ -16,7 +16,7 @@ public class RequestBloodController {
     private TextField units;
     
     @FXML
-    private TextField hospital;
+    private TextField facilityName;
     
     @FXML
     private TextArea reason;
@@ -39,7 +39,7 @@ public class RequestBloodController {
     private void handleSubmit() {
         // Validate all fields
         if (bloodType.getValue() == null || units.getText().isEmpty() ||
-            hospital.getText().isEmpty() || reason.getText().isEmpty() ||
+            facilityName.getText().isEmpty() || reason.getText().isEmpty() ||
             requiredDate.getValue() == null) {
             showError("Please fill in all fields");
             return;

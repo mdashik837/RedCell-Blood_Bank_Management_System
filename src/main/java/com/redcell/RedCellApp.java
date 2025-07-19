@@ -18,6 +18,9 @@ public class RedCellApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/dashboard.fxml"));
         Scene scene = new Scene(root);
         
+        // Add stylesheet to the scene
+        scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+        
         // Set minimum window size
         primaryStage.setMinWidth(800);
         primaryStage.setMinHeight(600);
