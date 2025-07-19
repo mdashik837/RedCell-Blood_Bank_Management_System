@@ -104,7 +104,7 @@
                         <graphic>
                             <StackPane>
                                 <Region styleClass="notification-icon"/>
-                                <StackPane styleClass="notification-badge" StackPane.alignment="TOP_RIGHT">
+                                <StackPane fx:id="notificationBadgePane" styleClass="notification-badge" StackPane.alignment="TOP_RIGHT">
                                     <Text fx:id="notificationCount" styleClass="notification-count" text="2"/>
                                 </StackPane>
                             </StackPane>

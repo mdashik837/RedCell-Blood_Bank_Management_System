@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class DashboardController {
     
     @FXML
@@ -36,6 +37,9 @@ public class DashboardController {
     
     @FXML
     private Text notificationCount;
+
+    @FXML
+    private StackPane notificationBadgePane;
     
     @FXML
     private Button notificationButton;
@@ -51,7 +55,7 @@ public class DashboardController {
     @FXML
     private void initialize() {
         // Load home view by default
-        loadView("home");
+        loadView("home"); // Initial view might be home or login depending on app flow
         
         // Initialize notifications
         notifications = new ArrayList<>();
@@ -62,10 +66,26 @@ public class DashboardController {
         addNotification("Donation Reminder", "Your next donation date is approaching");
     }
 
+    public void setLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
+        // Optionally update UI elements based on login status here
+        if (isLoggedIn) {
+            userNameText.setText("Logged In User"); // Replace with actual username
+        } else {
+            userNameText.setText("Guest");
+        }
+    }
+
     private void updateNotificationCount() {
         int unread = (int) notifications.stream().filter(n -> !n.isRead()).count();
         notificationCount.setText(String.valueOf(unread));
-        notificationCount.setVisible(unread > 0);
+        
+        // Control visibility of the notification count text and the badge itself
+        boolean hasUnread = unread > 0;
+        notificationCount.setVisible(hasUnread);
+        if (notificationBadgePane != null) {
+            notificationBadgePane.setVisible(hasUnread);
+        }
     }
 
     private void addNotification(String title, String message) {
@@ -134,6 +154,9 @@ public class DashboardController {
     private VBox createNotificationItem(Notification notification) {
         VBox item = new VBox();
         item.getStyleClass().add("notification-item");
+        if (!notification.isRead()) {
+            item.getStyleClass().add("unread");
+        }
         item.setMaxWidth(300);
 
         Text title = new Text(notification.getTitle());
@@ -150,8 +173,11 @@ public class DashboardController {
         
         // Mark as read when clicked
         item.setOnMouseClicked(e -> {
-            notification.setRead(true);
-            updateNotificationCount();
+            if (!notification.isRead()) {
+                notification.setRead(true);
+                item.getStyleClass().remove("unread");
+                updateNotificationCount();
+            }
             // Optional: hide popup after clicking
             // notificationPopup.hide();
         });
@@ -183,11 +209,6 @@ public class DashboardController {
         }
     }
 
-    @FXML
-    private void handleLoginAction() {
-        // In a real app, successful login would set isLoggedIn = true;
-        loadView("login"); // Or navigate to the dashboard after login
-    }
 
     @FXML
     private void handleRegisterAction() {
@@ -258,14 +279,25 @@ public class DashboardController {
         contactDialog.showAndWait();
     }
 
-    private void loadView(String viewName) {
+    public <T> T loadView(String viewName) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("/views/" + viewName + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/" + viewName + ".fxml"));
+            Parent view = loader.load();
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);
+            return loader.getController();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Error loading " + viewName + " view: " + e.getMessage());
+            return null;
+        }
+    }
+
+    @FXML
+    private void handleLoginAction() {
+        LoginController loginController = loadView("login");
+        if (loginController != null) {
+            loginController.setDashboardController(this);
         }
     }
 

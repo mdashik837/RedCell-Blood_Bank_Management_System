@@ -1871,6 +1871,16 @@
     -fx-background-color: #ff4d4d;
 }
 
+/* Logout Page Styles */
+.logout-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 4);
+}
+
 /* User Profile Styles */
 .user-profile-section {
     -fx-background-color: transparent;
@@ -1933,7 +1943,7 @@
 
 /* Notification Popup Styles */
 .notification-popup {
-    -fx-background-color: white;
+    -fx-background-color: lightblue; /* Temporarily change background to test CSS loading */
     -fx-background-radius: 12;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 15, 0, 0, 3);
     -fx-padding: 0;
@@ -1971,6 +1981,23 @@
 .notification-item {
     -fx-padding: 12 16;
     -fx-spacing: 8;
+    -fx-background-color: transparent; /* Default background */
+    -fx-cursor: hand;
+    -fx-border-color: transparent transparent #e0e0e0 transparent; /* Add a subtle grey bottom border */
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-style: solid;
+}
+
+.notification-item.unread {
+    -fx-background-color: #fff3e0; /* Light orange background for unread */
+    -fx-border-color: #ffc107; /* Optional: Add a left border */
+    -fx-border-width: 0 0 0 4px; /* Left border */
+    -fx-border-radius: 0 0 0 0; /* Adjust if needed */
+    -fx-background-radius: 0; /* Adjust if needed */
+}
+
+.notification-item:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05);
     -fx-background-color: transparent;
     -fx-cursor: hand;
 }

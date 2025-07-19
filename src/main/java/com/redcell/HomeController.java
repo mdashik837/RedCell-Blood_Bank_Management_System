@@ -35,6 +35,9 @@ public class HomeController {
     private Text livesSaved;
 
     @FXML
+    private Text activeDonors;
+
+    @FXML
     private TableView<Request> recentRequestsTable;
 
     @FXML
@@ -51,6 +54,7 @@ public class HomeController {
         mostRequestedType.setText("O+");
         pendingRequests.setText("12");
         livesSaved.setText("1,402");
+        activeDonors.setText("500"); // Placeholder value
     }
 
     private void initializeRecentRequestsTable() {

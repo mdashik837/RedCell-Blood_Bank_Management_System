@@ -21,7 +21,13 @@ public class LoginController {
     
     @FXML
     private Text errorMessage;
-    
+
+    private DashboardController dashboardController;
+
+    public void setDashboardController(DashboardController dashboardController) {
+        this.dashboardController = dashboardController;
+    }
+
     @FXML
     public void initialize() {
         // Add listeners to clear error message when user starts typing
@@ -55,6 +61,17 @@ public class LoginController {
         dialogPane.getStyleClass().add("custom-alert");
 
         alert.showAndWait();
+
+        // Load and display the logout scene in the content area
+        if (dashboardController != null) {
+            LogoutController logoutController = dashboardController.loadView("logout");
+            if (logoutController != null) {
+                logoutController.setDashboardController(dashboardController);
+            }
+        } else {
+            System.err.println("DashboardController not set on LoginController.");
+            // Fallback or error handling if dashboardController is null
+        }
 
     }
     

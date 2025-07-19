@@ -50,8 +50,8 @@
             </HBox>
             
             <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Hospital: "/>
-                <Text fx:id="hospital" styleClass="detail-value"/>
+                <Text styleClass="detail-label" text="Facility: "/>
+                <Text fx:id="facilityName" styleClass="detail-value"/>
             </HBox>
             
             <HBox styleClass="detail-row">

@@ -3,7 +3,7 @@ package com.redcell;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Donor {
+public class Donor extends User {
     private String name;
     private String bloodType;
     private LocalDate lastDonationDate;
