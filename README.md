@@ -54,14 +54,15 @@ RedCell/
 ├── src/
 │   └── main/
 │       ├── java/
+|       |   ├── module-info
 │       │   └── com/
 │       │       └── redcell/
-│       │           ├── controllers/
-│       │           └── models/
+│       │           └── controllers & models
 │       └── resources/
+│           ├── styles
 │           ├── views/
-│           ├── styles/
 │           └── img/
+├── run.bat
 └── pom.xml
 ```
 
