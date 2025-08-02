@@ -1,27 +1,10 @@
 package com.redcell;
 
+// Represents a medical facility
 public class Facility extends User {
-    private String name;
-    private String area;
 
+    // Constructor
     public Facility(String name, String area) {
-        this.name = name;
-        this.area = area;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
+        super(name, area);
     }
 }

@@ -3,30 +3,56 @@ package com.redcell;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+// Represents a blood donor
 public class Donor extends User {
-    private String name;
+
+    // Attributes
     private String bloodType;
     private LocalDate lastDonationDate;
-    private String area;
+    private DonorStatus status;
+    private int totalDonations;
 
+    // Constructor
     public Donor(String name, String bloodType, LocalDate lastDonationDate, String area) {
-        this.name = name;
+        super(name, area);
         this.bloodType = bloodType;
         this.lastDonationDate = lastDonationDate;
-        this.area = area;
+        this.status = DonorStatus.ELIGIBLE;
+        this.totalDonations = 0;
     }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    // Methods
+    public String getBloodType() {
+        return bloodType;
+    }
+    
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
 
-    public String getBloodType() { return bloodType; }
-    public void setBloodType(String bloodType) { this.bloodType = bloodType; }
+    public LocalDate getLastDonationDate() {
+        return lastDonationDate;
+    }
+    
+    public void setLastDonationDate(LocalDate lastDonationDate) {
+        this.lastDonationDate = lastDonationDate;
+    }
 
-    public LocalDate getLastDonationDate() { return lastDonationDate; }
-    public void setLastDonationDate(LocalDate lastDonationDate) { this.lastDonationDate = lastDonationDate; }
+    public DonorStatus getStatus() {
+        return status;
+    }
 
-    public String getArea() { return area; }
-    public void setArea(String area) { this.area = area; }
+    public void setStatus(DonorStatus status) {
+        this.status = status;
+    }
+
+    public int getTotalDonations() {
+        return totalDonations;
+    }
+
+    public void setTotalDonations(int totalDonations) {
+        this.totalDonations = totalDonations;
+    }
 
     public String getTimeSinceLastDonation() {
         if (lastDonationDate == null) {
@@ -42,4 +68,4 @@ public class Donor extends User {
             return days + (days == 1 ? " day ago" : " days ago");
         }
     }
-} 
+}
