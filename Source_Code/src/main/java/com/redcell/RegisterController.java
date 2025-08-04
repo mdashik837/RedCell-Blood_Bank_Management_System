@@ -10,7 +10,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 
+
 public class RegisterController {
+
+    private static boolean isLoggedIn = false;
+
+    public static void setLoggedInState(boolean state) {
+        isLoggedIn = state;
+    }
+
+
     @FXML private TextField fullName;
     @FXML private DatePicker dateOfBirth;
     @FXML private ComboBox<String> bloodType;

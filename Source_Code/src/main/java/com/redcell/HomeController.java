@@ -54,7 +54,7 @@ public class HomeController {
         mostRequestedType.setText("O+");
         pendingRequests.setText("12");
         livesSaved.setText("1,402");
-        activeDonors.setText("500"); // Placeholder value
+        activeDonors.setText("500");
     }
 
     private void initializeRecentRequestsTable() {
@@ -127,11 +127,11 @@ public class HomeController {
 
         // Add sample data
         ObservableList<Request> recentRequests = FXCollections.observableArrayList(
-            new Request("REQ001", "A+", 2, "City Hospital", "Downtown", "Pending", LocalDate.now().format(DateTimeFormatter.ISO_DATE)),
-            new Request("REQ002", "O-", 3, "General Hospital", "Uptown", "Completed", LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE)),
-            new Request("REQ003", "B+", 1, "St. Mary's", "Westside", "Processing", LocalDate.now().minusDays(2).format(DateTimeFormatter.ISO_DATE)),
-            new Request("REQ004", "AB-", 4, "Emergency Care", "Eastside", "Pending", LocalDate.now().minusDays(3).format(DateTimeFormatter.ISO_DATE)),
-            new Request("REQ005", "O+", 2, "Central Hospital", "Midtown", "Completed", LocalDate.now().minusDays(4).format(DateTimeFormatter.ISO_DATE))
+            new Request("REQ001", "A+", 2, "জঝঞর", "Downtown", "Pending", LocalDate.now().format(DateTimeFormatter.ISO_DATE), "Severe Anemia", "10:00 AM", "Emily Johnson", "System"),
+            new Request("REQ002", "O-", 3, "General Hospital", "Uptown", "Completed", LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE), "Trauma Injury", "08:45 AM", "Mary Smith", "System"),
+            new Request("REQ003", "B+", 1, "St. Mary's", "Westside", "Processing", LocalDate.now().minusDays(2).format(DateTimeFormatter.ISO_DATE), "Liver Surgery", "14:30 PM", "Paul Walker", "System"),
+            new Request("REQ004", "AB-", 4, "Emergency Care", "Eastside", "Pending", LocalDate.now().minusDays(3).format(DateTimeFormatter.ISO_DATE), "Planned Transplant", "09:15 AM", "Rachel Adams", "System"),
+            new Request("REQ005", "O+", 2, "Central Hospital", "Midtown", "Completed", LocalDate.now().minusDays(4).format(DateTimeFormatter.ISO_DATE), "Postpartum Hemorrhage", "12:00 PM", "Jessica Kim", "System")
         );
 
         recentRequestsTable.setItems(recentRequests);

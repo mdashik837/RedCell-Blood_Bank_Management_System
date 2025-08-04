@@ -16,7 +16,7 @@
         <Insets top="30" right="40" bottom="30" left="40"/>
     </padding>
 
-    <Text styleClass="page-title" text="Track Blood Request"/>
+    <Text styleClass="login-title" text="Track Blood Request"/>
     
     <VBox styleClass="form-container" spacing="15">
         <HBox spacing="10" alignment="CENTER">
@@ -29,35 +29,52 @@
         
         <Text fx:id="errorMessage" styleClass="error-message"/>
         
-        <VBox fx:id="requestDetails" styleClass="request-details" spacing="15" visible="false">
-            <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Status: "/>
-                <HBox fx:id="statusContainer" alignment="CENTER_LEFT">
-                    <Text fx:id="status" styleClass="detail-value"/>
+<ScrollPane fitToWidth="true" styleClass="main-scroll-pane">
+            <VBox fx:id="requestDetails" styleClass="request-details" spacing="15" visible="false">
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Status: "/>
+                    <HBox fx:id="statusContainer" alignment="CENTER_LEFT">
+                        <Text fx:id="status" styleClass="detail-value"/>
+                    </HBox>
                 </HBox>
-            </HBox>
-            
-            <Separator/>
-            
-            <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Blood Type: "/>
-                <Text fx:id="bloodType" styleClass="detail-value"/>
-            </HBox>
-            
-            <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Units: "/>
-                <Text fx:id="units" styleClass="detail-value"/>
-            </HBox>
-            
-            <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Facility: "/>
-                <Text fx:id="facilityName" styleClass="detail-value"/>
-            </HBox>
-            
-            <HBox styleClass="detail-row">
-                <Text styleClass="detail-label" text="Required Date: "/>
-                <Text fx:id="requiredDate" styleClass="detail-value"/>
-            </HBox>
-        </VBox>
+                
+                <Separator/>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Patient Condition: "/>
+                    <Text fx:id="patientCondition" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Blood Type: "/>
+                    <Text fx:id="bloodType" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Units: "/>
+                    <Text fx:id="units" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Facility: "/>
+                    <Text fx:id="facilityName" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Required Date: "/>
+                    <Text fx:id="requiredDate" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Request Time: "/>
+                    <Text fx:id="time" styleClass="detail-value"/>
+                </HBox>
+                
+                <HBox styleClass="detail-row">
+                    <Text styleClass="detail-label" text="Contact: "/>
+                    <Text fx:id="contact" styleClass="detail-value"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
     </VBox>
 </VBox> 
