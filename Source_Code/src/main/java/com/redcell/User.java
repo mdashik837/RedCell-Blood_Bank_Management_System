@@ -1,11 +1,12 @@
 package com.redcell;
 
 // Represents a generic user
-public class User {
+public abstract class User {
 
     // Attributes
     private String name;
     private String area;
+    private final String userType = "donor"; // Default user type
 
     // Constructor
     public User(String name, String area) {
@@ -28,6 +29,10 @@ public class User {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+     public String getUserType() { // Getter for userType
+        return userType;
     }
 
 }
