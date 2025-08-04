@@ -30,10 +30,19 @@ public class TrackRequestController {
     private Text units;
     
     @FXML
-    private Text hospital;
+    private Text facilityName;
     
     @FXML
     private Text requiredDate;
+    
+    @FXML
+    private Text patientCondition;
+    
+    @FXML
+    private Text time;
+    
+    @FXML
+    private Text contact;
     
     @FXML
     private Text errorMessage;
@@ -104,7 +113,7 @@ public class TrackRequestController {
                     if (id.equals("REQ001")) {
                         showError("");
                         // Create a dummy Request object for now
-                        Request dummyRequest = new Request("REQ001", "A+", 2, "City Hospital", "Downtown", "Processing", "2024-03-20");
+                        Request dummyRequest = new Request("REQ001", "A+", 2, "City Hospital", "Downtown", "Processing", "2024-03-20", "Critical Condition", "08:00 AM", "Dr. Emily Chen", "System");
                         displayRequestDetails(
                             dummyRequest.getStatus(),
                             dummyRequest.getBloodType(),
@@ -132,8 +141,11 @@ public class TrackRequestController {
         status.setText(statusText);
         bloodType.setText(bloodTypeText);
         units.setText(unitsText);
-        hospital.setText(request.getHospital()); // Get hospital name from Facility object in Request
+        facilityName.setText(request.getHospital());
         requiredDate.setText(dateText);
+        patientCondition.setText(request.getPatientCondition());
+        time.setText(request.getTime());
+        contact.setText(request.getContact());
         requestDetails.setVisible(true);
 
         // Apply status-specific styling

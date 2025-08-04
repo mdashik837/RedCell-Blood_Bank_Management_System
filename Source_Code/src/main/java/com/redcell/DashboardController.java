@@ -25,10 +25,16 @@ import java.util.List;
 
 
 public class DashboardController {
-    
+
+
+    private static boolean isLoggedIn = false;
+
+    public static void setLoggedInState(boolean state) {
+        isLoggedIn = state;
+    }
+
     @FXML
     private StackPane contentArea;
-    
     @FXML
     private Text userNameText;
     
@@ -47,28 +53,27 @@ public class DashboardController {
     @FXML
     private Button dashboardButton;
     
-    private boolean isLoggedIn = false; // Placeholder for login status
     
     private Popup notificationPopup;
     private List<Notification> notifications;
 
     @FXML
     private void initialize() {
-        // Load home view by default
-        loadView("home"); // Initial view might be home or login depending on app flow
-        
+        // Always load the home view by default
+        loadView("home");
+
         // Initialize notifications
         notifications = new ArrayList<>();
         updateNotificationCount();
-        
-        // Add some sample notifications
-        addNotification("Blood Request", "New A+ blood request from City Hospital");
-        addNotification("Donation Reminder", "Your next donation date is approaching");
+
+        refreshNotifications();
+
+        // Update UI based on initial login state (which is false by default)
+        updateUIForLoggedInState(isLoggedIn);
     }
 
     public void setLoggedIn(boolean loggedIn) {
         isLoggedIn = loggedIn;
-        // Optionally update UI elements based on login status here
         if (isLoggedIn) {
             userNameText.setText("Logged In User"); // Replace with actual username
         } else {
@@ -193,7 +198,11 @@ public class DashboardController {
     @FXML
     private void handleDashboardAction() {
         if (isLoggedIn) {
-            loadView("dashboard"); // Assuming a dashboard.fxml view exists
+            if (DonorDashboardController.isLoggedIn) {
+            loadView("donordashboard");
+            } else {
+            loadView("facilitydashboard");
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Login Required");
@@ -285,7 +294,17 @@ public class DashboardController {
             Parent view = loader.load();
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);
-            return loader.getController();
+            
+            // Get the controller and set DashboardController if needed
+            Object controller = loader.getController();
+            if (controller instanceof LoginController) {
+                ((LoginController) controller).setDashboardController(this);
+            } else if (controller instanceof LogoutController) {
+                ((LogoutController) controller).setDashboardController(this);
+            }
+
+            // Return the controller, casting it to the expected type T
+            return (T) controller;
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Error loading " + viewName + " view: " + e.getMessage());
@@ -293,13 +312,53 @@ public class DashboardController {
         }
     }
 
+    // Method to update UI elements based on login state (e.g., hide/show login/logout buttons)
+    private void updateUIForLoggedInState(boolean loggedIn) {
+        if (loggedIn) {
+            userNameText.setText("Logged In User"); // Replace with actual username
+        } else {
+            userNameText.setText("Guest");
+        }
+
+
+    }
+
     @FXML
     private void handleLoginAction() {
-        LoginController loginController = loadView("login");
-        if (loginController != null) {
-            loginController.setDashboardController(this);
+        if (!isLoggedIn) {
+            // If not logged in, load the login view
+            LoginController loginController = loadView("login");
+            if (loginController != null) {
+                loginController.setDashboardController(this);
+            }
+            // Note: isLoggedIn will be set by the LoginController upon successful login
+            // updateUIForLoggedInState(isLoggedIn); // UI update should happen after successful login
+        } else {
+            // If logged in, initiate logout and load the logout view
+            loadView("logout"); // This will load the view containing the logout button
+            // The actual logout logic (setting flags, showing pop-up, and loading login view)
+            // is handled by the LogoutController's handleLogout method, triggered by the button in the logout view.
+            // updateUIForLoggedInState(isLoggedIn); // UI update should happen after successful logout
         }
     }
+
+
+    private void addDefaultNotification() {
+        addNotification("Please Log In", "Please log in to view your notifications here.");
+    }
+
+    public void refreshNotifications() {
+        notifications.clear(); // Clear existing notifications
+        if (!isLoggedIn) {
+            addDefaultNotification();
+        } else {
+            // Add some sample notifications
+            addNotification("Blood Request", "New A+ blood request from City Hospital");
+            addNotification("Donation Reminder", "Your next donation date is approaching");
+        }
+        updateNotificationCount();
+    }
+
 
     private static class Notification {
         private final String title;
